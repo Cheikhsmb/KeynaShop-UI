@@ -6,6 +6,7 @@ import collection4 from "@/assets/collection-4.jpg";
 import collection5 from "@/assets/collection-5.jpg";
 import collection6 from "@/assets/collection-6.jpg";
 import collection7 from "@/assets/collection-7.jpg";
+import collection8 from "@/assets/collection-8.jpg";
 
 const collections = [
   {
