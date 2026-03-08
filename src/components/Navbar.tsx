@@ -27,8 +27,8 @@ const Navbar = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/85 backdrop-blur-md border-b border-border">
       <div className="section-padding flex items-center justify-between h-16 md:h-20">
-        <Link to="/" className="font-display text-2xl md:text-3xl tracking-tight text-foreground italic">
-          KEYNA
+        <Link to="/" className="flex items-center">
+          <img src={keynaLogo} alt="KEYNA" className="h-8 md:h-10" />
         </Link>
 
         <div className="hidden md:flex items-center gap-8">
