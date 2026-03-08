@@ -3,25 +3,24 @@ import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
+const navLinks = ["Collections", "About", "Gift Ideas", "Contact"];
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const navLinks = ["Collections", "New Arrivals", "About", "Contact"];
-
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/85 backdrop-blur-md border-b border-border">
       <div className="section-padding flex items-center justify-between h-16 md:h-20">
-        <a href="/" className="text-display text-xl md:text-2xl tracking-tighter">
-          MODERNO
+        <a href="/" className="font-display text-2xl md:text-3xl tracking-tight text-foreground italic">
+          KEYNA
         </a>
 
-        {/* Desktop nav */}
         <div className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
             <a
               key={link}
               href={`#${link.toLowerCase().replace(" ", "-")}`}
-              className="font-display text-xs uppercase tracking-widest text-muted-foreground hover:text-foreground transition-colors duration-300"
+              className="font-body text-[13px] uppercase tracking-[0.15em] text-muted-foreground hover:text-foreground transition-colors duration-300"
             >
               {link}
             </a>
@@ -31,7 +30,6 @@ const Navbar = () => {
           </Button>
         </div>
 
-        {/* Mobile toggle */}
         <button
           onClick={() => setIsOpen(!isOpen)}
           className="md:hidden text-foreground"
@@ -41,7 +39,6 @@ const Navbar = () => {
         </button>
       </div>
 
-      {/* Mobile menu */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -57,7 +54,7 @@ const Navbar = () => {
                   key={link}
                   href={`#${link.toLowerCase().replace(" ", "-")}`}
                   onClick={() => setIsOpen(false)}
-                  className="font-display text-sm uppercase tracking-widest text-muted-foreground hover:text-foreground transition-colors"
+                  className="font-body text-sm uppercase tracking-[0.15em] text-muted-foreground hover:text-foreground transition-colors"
                 >
                   {link}
                 </a>
