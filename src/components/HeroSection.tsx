@@ -29,7 +29,7 @@ const HeroSection = () => {
             <span className="not-italic font-light">Redefined</span>
           </h1>
           <p className="text-primary-foreground/75 font-body text-base md:text-lg max-w-md mb-8 leading-relaxed">
-            Curated abayas, perfumes, bags & homeware — imported from Dubai, Turkey, Thailand & beyond. For the modern woman who celebrates her style.
+            Curated abayas, perfumes, bags & homeware — imported from Dubai, Turkey, Thailand & beyond. For those who celebrate elegance in every detail.
           </p>
           <div className="flex flex-wrap gap-4">
             <Button variant="hero" size="lg">
