@@ -6,7 +6,7 @@ import { Menu, X, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const shopLinks = [
-  { label: "Abayas", href: "#collections" },
+  { label: "Abayas & Veils", href: "#collections" },
   { label: "Perfumes", href: "#collections" },
   { label: "Bags", href: "#collections" },
   { label: "Jewelry", href: "#collections" },
