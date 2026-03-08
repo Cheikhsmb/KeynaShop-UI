@@ -13,7 +13,7 @@ const shopLinks = [
   { label: "Thiouraye & Essences", href: "#collections" },
   { label: "Fabrics", href: "#collections" },
   { label: "Home & Tableware", href: "#collections" },
-  { label: "Hair Scrunchies", href: "#collections" },
+  { label: "Scrunchies & Hats", href: "#collections" },
   { label: "New Arrivals", href: "#new-arrivals" },
 ];
 
