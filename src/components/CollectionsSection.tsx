@@ -45,8 +45,8 @@ const collections = [
     image: collection4,
   },
   {
-    title: "Hair Scrunchies",
-    description: "Luxurious silk and satin scrunchies in rich jewel tones for effortless style",
+    title: "Scrunchies & Hats",
+    description: "Silk scrunchies and elegant women's hats to complete every outfit with flair",
     image: collection8,
   },
 ];
