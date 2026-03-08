@@ -28,6 +28,11 @@ const collections = [
     image: collection5,
   },
   {
+    title: "Thiouraye & Essences",
+    description: "Traditional Senegalese incense and aromatic essences for a refined atmosphere",
+    image: collection6,
+  },
+  {
     title: "Home & Table",
     description: "Turkish linens and elegant tableware to elevate your everyday",
     image: collection4,
