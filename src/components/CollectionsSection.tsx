@@ -10,8 +10,8 @@ import collection8 from "@/assets/collection-8.jpg";
 
 const collections = [
   {
-    title: "Abayas",
-    description: "Flowing silhouettes with delicate embroidery, sourced from the finest ateliers",
+    title: "Abayas & Veils",
+    description: "Flowing abayas with delicate embroidery and elegant matching veils, sourced from the finest ateliers",
     image: collection1,
   },
   {
