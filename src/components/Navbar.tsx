@@ -8,6 +8,7 @@ const shopLinks = [
   { label: "Abayas", href: "#collections" },
   { label: "Perfumes", href: "#collections" },
   { label: "Bags", href: "#collections" },
+  { label: "Jewelry", href: "#collections" },
   { label: "Home & Tableware", href: "#collections" },
   { label: "New Arrivals", href: "#new-arrivals" },
 ];

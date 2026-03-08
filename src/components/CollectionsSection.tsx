@@ -52,7 +52,7 @@ const CollectionsSection = () => {
         </p>
       </motion.div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 md:gap-8">
         {collections.map((item, index) => (
           <motion.div
             key={item.title}
