@@ -44,6 +44,11 @@ const collections = [
     description: "Turkish linens and elegant tableware to elevate your everyday",
     image: collection4,
   },
+  {
+    title: "Hair Scrunchies",
+    description: "Luxurious silk and satin scrunchies in rich jewel tones for effortless style",
+    image: collection8,
+  },
 ];
 
 const CollectionsSection = () => {
