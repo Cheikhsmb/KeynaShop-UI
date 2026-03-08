@@ -34,6 +34,11 @@ const collections = [
     image: collection6,
   },
   {
+    title: "Embroidered & Cotton Fabrics",
+    description: "Premium bazin, brodé and cotton textiles for every occasion",
+    image: collection7,
+  },
+  {
     title: "Home & Table",
     description: "Turkish linens and elegant tableware to elevate your everyday",
     image: collection4,
