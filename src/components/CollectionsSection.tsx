@@ -5,6 +5,7 @@ import collection3 from "@/assets/collection-3.jpg";
 import collection4 from "@/assets/collection-4.jpg";
 import collection5 from "@/assets/collection-5.jpg";
 import collection6 from "@/assets/collection-6.jpg";
+import collection7 from "@/assets/collection-7.jpg";
 
 const collections = [
   {
@@ -31,6 +32,11 @@ const collections = [
     title: "Thiouraye & Essences",
     description: "Traditional Senegalese incense and aromatic essences for a refined atmosphere",
     image: collection6,
+  },
+  {
+    title: "Embroidered & Cotton Fabrics",
+    description: "Premium bazin, brodé and cotton textiles for every occasion",
+    image: collection7,
   },
   {
     title: "Home & Table",

@@ -11,6 +11,7 @@ const shopLinks = [
   { label: "Bags", href: "#collections" },
   { label: "Jewelry", href: "#collections" },
   { label: "Thiouraye & Essences", href: "#collections" },
+  { label: "Fabrics", href: "#collections" },
   { label: "Home & Tableware", href: "#collections" },
   { label: "New Arrivals", href: "#new-arrivals" },
 ];
