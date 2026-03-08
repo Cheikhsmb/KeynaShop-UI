@@ -1,11 +1,12 @@
 import { Instagram, Facebook, Phone } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const FooterSection = () => {
   return (
     <footer id="contact" className="py-16 md:py-20 section-padding border-t border-border">
       <div className="grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-8 mb-12">
         <div className="md:col-span-2">
-          <h3 className="font-display text-2xl italic tracking-tight mb-4">KEYNA</h3>
+          <Link to="/" className="font-display text-2xl italic tracking-tight mb-4 block">KEYNA</Link>
           <p className="text-muted-foreground font-body text-sm max-w-sm leading-relaxed">
             Elegance curated from around the world. Visit our boutique in Dakar or shop conveniently online with delivery across Senegal.
           </p>
@@ -13,14 +14,19 @@ const FooterSection = () => {
 
         <div>
           <h4 className="font-body text-xs uppercase tracking-[0.15em] mb-4 text-foreground font-semibold">
-            Collections
+            Navigation
           </h4>
           <ul className="space-y-2">
-            {["Abayas", "Perfumes", "Bags & Shoes", "Home & Table"].map((link) => (
-              <li key={link}>
-                <a href="#" className="text-muted-foreground text-sm hover:text-foreground transition-colors font-body">
-                  {link}
-                </a>
+            {[
+              { label: "About", href: "/about" },
+              { label: "FAQ", href: "/faq" },
+              { label: "Livraison", href: "/delivery" },
+              { label: "Contact", href: "/contact" },
+            ].map((link) => (
+              <li key={link.label}>
+                <Link to={link.href} className="text-muted-foreground text-sm hover:text-foreground transition-colors font-body">
+                  {link.label}
+                </Link>
               </li>
             ))}
           </ul>
