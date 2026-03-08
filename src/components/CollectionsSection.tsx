@@ -3,6 +3,7 @@ import collection1 from "@/assets/collection-1.jpg";
 import collection2 from "@/assets/collection-2.jpg";
 import collection3 from "@/assets/collection-3.jpg";
 import collection4 from "@/assets/collection-4.jpg";
+import collection5 from "@/assets/collection-5.jpg";
 
 const collections = [
   {
@@ -19,6 +20,11 @@ const collections = [
     title: "Bags & Shoes",
     description: "Statement accessories imported from Malaysia and beyond",
     image: collection3,
+  },
+  {
+    title: "Jewelry",
+    description: "Elegant gold and statement pieces to complement every look",
+    image: collection5,
   },
   {
     title: "Home & Table",
@@ -46,7 +52,7 @@ const CollectionsSection = () => {
         </p>
       </motion.div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 md:gap-8">
         {collections.map((item, index) => (
           <motion.div
             key={item.title}
