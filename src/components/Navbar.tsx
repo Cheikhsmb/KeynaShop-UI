@@ -131,7 +131,7 @@ const Navbar = () => {
                 </Link>
               ))}
 
-              <Link to="/contact" onClick={() => setIsOpen(false)}>
+              <Link to="/shop" onClick={() => setIsOpen(false)}>
                 <Button variant="hero" size="sm" className="w-fit mt-2">
                   Shop Now
                 </Button>
