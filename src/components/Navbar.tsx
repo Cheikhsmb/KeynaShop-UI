@@ -78,7 +78,8 @@ const Navbar = () => {
               {link.label}
             </Link>
           ))}
-          <Link to="/contact">
+          <CartDrawer />
+          <Link to="/shop">
             <Button variant="hero" size="sm">
               Shop Now
             </Button>
