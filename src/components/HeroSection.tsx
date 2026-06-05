@@ -1,8 +1,11 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/hero-fashion.jpg";
+import { Link } from "react-router-dom";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const HeroSection = () => {
+  const { t } = useLanguage();
   return (
     <section className="relative min-h-screen flex items-end overflow-hidden">
       <div className="absolute inset-0">
@@ -24,24 +27,26 @@ const HeroSection = () => {
         >
           <div className="gold-divider mb-6" />
           <h1 className="font-display text-4xl md:text-6xl lg:text-7xl text-primary-foreground leading-[1.05] mb-5 italic">
-            Elegance
+            {t("hero.title")}
             <br />
-            <span className="not-italic font-light">Redefined</span>
+            <span className="not-italic font-light">{t("hero.subtitle")}</span>
           </h1>
           <p className="text-primary-foreground/75 font-body text-base md:text-lg max-w-md mb-8 leading-relaxed">
-            Curated abayas, perfumes, bags & homeware — imported from Dubai, Turkey, Thailand & beyond. For those who celebrate elegance in every detail.
+            {t("hero.desc")}
           </p>
           <div className="flex flex-wrap gap-4">
-            <Button variant="hero" size="lg">
-              Explore Collections
-            </Button>
-            <Button
-              variant="hero-outline"
-              size="lg"
-              className="border-primary-foreground/40 text-primary-foreground hover:bg-primary-foreground hover:text-primary"
-            >
-              Our Story
-            </Button>
+            <Link to="/shop">
+              <Button variant="hero" size="lg">{t("hero.explore")}</Button>
+            </Link>
+            <Link to="/about">
+              <Button
+                variant="hero-outline"
+                size="lg"
+                className="border-primary-foreground/40 text-primary-foreground hover:bg-primary-foreground hover:text-primary"
+              >
+                {t("hero.story")}
+              </Button>
+            </Link>
           </div>
         </motion.div>
       </div>

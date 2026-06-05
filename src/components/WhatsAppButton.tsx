@@ -1,6 +1,6 @@
 import { MessageCircle } from "lucide-react";
 
-const WHATSAPP_NUMBER = "221XXXXXXXXX"; // Replace with your actual WhatsApp number
+const WHATSAPP_NUMBER = "+221772283684"; // WhatsApp Business Number
 
 const WhatsAppButton = () => {
   const message = encodeURIComponent("Bonjour KEYNA, je souhaite avoir plus d'informations sur vos produits.");
