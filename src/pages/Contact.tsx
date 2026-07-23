@@ -1,8 +1,10 @@
 import { motion } from "framer-motion";
-import { MessageCircle, Instagram, Mail, MapPin } from "lucide-react";
+import { Mail, MapPin } from "lucide-react";
+import { SiWhatsapp, SiInstagram } from "@icons-pack/react-simple-icons";
 import Navbar from "@/components/Navbar";
 import FooterSection from "@/components/FooterSection";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import { WHATSAPP_NUMBER } from "@/data/products";
 import { useLanguage } from "@/i18n/LanguageContext";
 
 const Contact = () => {
@@ -10,17 +12,17 @@ const Contact = () => {
 
   const contactMethods = [
     {
-      icon: MessageCircle,
+      icon: SiWhatsapp,
       label: "WhatsApp",
-      value: "+221 775 498 999",
-      href: "https://wa.me/221775498999",
+      value: WHATSAPP_NUMBER,
+      href: `https://wa.me/${WHATSAPP_NUMBER.replace("+", "")}`,
       descKey: "contact.wa.desc",
     },
     {
-      icon: Instagram,
+      icon: SiInstagram,
       label: "Instagram",
-      value: "@keyna.sn",
-      href: "https://instagram.com/keyna.sn",
+      value: "@keynashop_01",
+      href: "https://www.instagram.com/keynashop_01?igsh=cnB1aDJ0YTZxcTE1&utm_source=qr",
       descKey: "contact.ig.desc",
     },
     {
@@ -37,7 +39,7 @@ const Contact = () => {
       href: "#",
       descKey: "contact.addr.desc",
     },
-  ];
+  ] as const;
 
   return (
     <div className="min-h-screen bg-background">

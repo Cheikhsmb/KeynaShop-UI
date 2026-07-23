@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowLeft, ShoppingCart, MessageCircle } from "lucide-react";
+import { ArrowLeftIcon, ShoppingBagIcon } from "@phosphor-icons/react";
 import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import FooterSection from "@/components/FooterSection";
-import { getProductByHandle, WHATSAPP_NUMBER, type Product } from "@/data/products";
+import { getProductByHandle, type Product } from "@/data/products";
 import { useCartStore } from "@/stores/cartStore";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { getLocalizedTitle, getLocalizedDescription } from "@/i18n/localize";
 import { toast } from "sonner";
 
 const ProductDetail = () => {
@@ -22,7 +23,8 @@ const ProductDetail = () => {
     if (handle) {
       const found = getProductByHandle(handle);
       setProduct(found ?? null);
-      setSelectedVariantIndex(0);
+      const firstAvailable = found?.variants?.findIndex((v) => v.available) ?? -1;
+      setSelectedVariantIndex(firstAvailable >= 0 ? firstAvailable : 0);
       setSelectedImage(0);
     }
   }, [handle]);
@@ -41,14 +43,8 @@ const ProductDetail = () => {
     );
   }
 
-  const title =
-    lang === "en" ? product.titleEn : lang === "ar" ? product.titleAr : product.title;
-  const description =
-    lang === "en"
-      ? product.descriptionEn
-      : lang === "ar"
-      ? product.descriptionAr
-      : product.description;
+  const title = getLocalizedTitle(product, lang);
+  const description = getLocalizedDescription(product, lang);
 
   const variant = product.variants?.[selectedVariantIndex];
   const isAvailable = variant?.available ?? true;
@@ -64,10 +60,15 @@ const ProductDetail = () => {
     toast.success(t("product.added"), { description: title, position: "top-center" });
   };
 
-  const handleOrderWhatsApp = () => {
-    const msg = `${t("cart.waMsg")}• ${title}${variant && variant.label !== "Default" ? ` (${variant.label})` : ""} x1 — ${product.price.toLocaleString()} FCFA${t("cart.waThanks")}`;
-    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
-    window.open(url, "_blank");
+  const handleBuyNow = () => {
+    addItem({
+      product,
+      variantId: variant?.id ?? `${product.id}-default`,
+      variantLabel: variant?.label ?? "Default",
+      price: product.price,
+      quantity: 1,
+    });
+    toast.success(t("product.added"), { description: title, position: "top-center" });
   };
 
   return (
@@ -78,7 +79,7 @@ const ProductDetail = () => {
           to="/shop"
           className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground font-body text-sm mb-8 transition-colors"
         >
-          <ArrowLeft className="w-4 h-4" /> {t("product.back")}
+          <ArrowLeftIcon className="w-4 h-4" /> {t("product.back")}
         </Link>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
@@ -160,18 +161,18 @@ const ProductDetail = () => {
                 className="flex-1"
                 id="add-to-cart-btn"
               >
-                <ShoppingCart className="w-4 h-4 mr-2" />
+                <ShoppingBagIcon className="w-4 h-4 mr-2" />
                 {isAvailable ? t("product.addCart") : t("product.outOfStock")}
               </Button>
               <Button
                 variant="hero-outline"
                 size="lg"
-                onClick={handleOrderWhatsApp}
-                className="flex-1 bg-[#25D366]/10 border-[#25D366] text-[#25D366] hover:bg-[#25D366] hover:text-white"
-                id="whatsapp-direct-btn"
+                onClick={handleBuyNow}
+                className="flex-1"
+                id="buy-now-btn"
               >
-                <MessageCircle className="w-4 h-4 mr-2" />
-                {t("product.orderWA")}
+                <ShoppingBagIcon className="w-4 h-4 mr-2" />
+                {t("product.buyNow") ?? "Buy Now"}
               </Button>
             </div>
             {!isAvailable && (

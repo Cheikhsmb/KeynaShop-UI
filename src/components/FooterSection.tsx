@@ -1,6 +1,12 @@
-import { Instagram, Facebook, Phone } from "lucide-react";
+import { SiInstagram, SiWhatsapp } from "@icons-pack/react-simple-icons";
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { WHATSAPP_NUMBER } from "@/data/products";
+
+const SOCIALS = [
+  { Icon: SiInstagram, href: "https://instagram.com/keyna.sn", label: "Instagram" },
+  { Icon: SiWhatsapp, href: `https://wa.me/${WHATSAPP_NUMBER}`, label: "WhatsApp" },
+];
 
 const FooterSection = () => {
   const { t } = useLanguage();
@@ -10,7 +16,7 @@ const FooterSection = () => {
     { labelKey: "footer.faq", href: "/faq" },
     { labelKey: "footer.delivery", href: "/delivery" },
     { labelKey: "footer.contact", href: "/contact" },
-  ];
+  ] as const;
 
   return (
     <footer id="contact" className="py-16 md:py-20 section-padding border-t border-border">
@@ -42,8 +48,15 @@ const FooterSection = () => {
             {t("footer.touch")}
           </h4>
           <div className="flex gap-4 mb-4">
-            {[Instagram, Facebook, Phone].map((Icon, i) => (
-              <a key={i} href="#" className="text-muted-foreground hover:text-accent transition-colors" aria-label="Social media">
+            {SOCIALS.map(({ Icon, href, label }) => (
+              <a
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-accent transition-colors"
+                aria-label={label}
+              >
                 <Icon size={18} />
               </a>
             ))}
@@ -56,7 +69,7 @@ const FooterSection = () => {
       <div className="border-t border-border pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
         <p className="text-muted-foreground text-xs font-body">{t("footer.copyright")}</p>
         <div className="flex gap-6">
-          {["footer.privacy", "footer.terms"].map((key) => (
+          {(["footer.privacy", "footer.terms"] as const).map((key) => (
             <a key={key} href="#" className="text-muted-foreground text-xs hover:text-foreground transition-colors font-body">
               {t(key)}
             </a>

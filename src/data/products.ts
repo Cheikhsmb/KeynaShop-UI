@@ -6,6 +6,7 @@ import collection5 from "@/assets/collection-5.jpg";
 import collection6 from "@/assets/collection-6.jpg";
 import collection7 from "@/assets/collection-7.jpg";
 import collection8 from "@/assets/collection-8.jpg";
+import type { TranslationKey } from "@/i18n/translations";
 
 export type Category =
   | "abayas"
@@ -497,7 +498,7 @@ const allProducts: Product[] = [
 export default allProducts;
 
 export function getProductByHandle(handle: string): Product | undefined {
-  return allProducts.find((p) => p.handle === handle);
+  return allProducts.find((p) => p.handle.toLowerCase() === handle.toLowerCase());
 }
 
 export function getProductsByCategory(category: Category | "all"): Product[] {
@@ -505,7 +506,7 @@ export function getProductsByCategory(category: Category | "all"): Product[] {
   return allProducts.filter((p) => p.category === category);
 }
 
-export const CATEGORY_KEYS: { value: Category | "all"; labelKey: string }[] = [
+export const CATEGORY_KEYS: { value: Category | "all"; labelKey: TranslationKey }[] = [
   { value: "all", labelKey: "shop.all" },
   { value: "abayas", labelKey: "nav.cat.abayas" },
   { value: "perfumes", labelKey: "nav.cat.perfumes" },

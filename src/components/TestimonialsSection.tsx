@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Star, Quote } from "lucide-react";
+import { StarIcon, QuotesIcon } from "@phosphor-icons/react";
 import { useLanguage } from "@/i18n/LanguageContext";
 
 const TESTIMONIALS = [
@@ -58,11 +58,11 @@ const TestimonialsSection = () => {
               transition={{ duration: 0.5, delay: index * 0.12 }}
               className="bg-background border border-border rounded-lg p-6"
             >
-              <Quote className="w-6 h-6 text-accent/40 mb-3" />
+              <QuotesIcon weight="fill" className="w-6 h-6 text-accent/40 mb-3" />
               <p className="text-foreground font-body text-sm leading-relaxed mb-4">"{text}"</p>
               <div className="flex gap-0.5 mb-2">
                 {Array.from({ length: item.rating }).map((_, i) => (
-                  <Star key={i} className="w-3 h-3 fill-accent text-accent" />
+                  <StarIcon key={i} weight="fill" className="w-3 h-3 text-accent" />
                 ))}
               </div>
               <p className="font-display text-sm italic">{item.name}</p>

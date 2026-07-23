@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Star } from "lucide-react";
+import { StarIcon } from "@phosphor-icons/react";
 import collection1 from "@/assets/collection-1.jpg";
 import collection2 from "@/assets/collection-2.jpg";
 import collection3 from "@/assets/collection-3.jpg";
@@ -54,7 +54,11 @@ const BestSellersSection = () => {
                 </div>
                 <div className="flex gap-0.5 mb-1">
                   {Array.from({ length: 5 }).map((_, i) => (
-                    <Star key={i} className={`w-3 h-3 ${i < item.rating ? "fill-accent text-accent" : "text-border"}`} />
+                    <StarIcon
+                      key={i}
+                      weight={i < item.rating ? "fill" : "light"}
+                      className={`w-3 h-3 ${i < item.rating ? "text-accent" : "text-border"}`}
+                    />
                   ))}
                 </div>
                 <h3 className="font-display text-sm md:text-base italic mb-0.5 group-hover:text-accent transition-colors">{title}</h3>

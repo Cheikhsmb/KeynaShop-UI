@@ -1,13 +1,14 @@
 import { useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ShoppingCart } from "lucide-react";
+import { ShoppingBagIcon } from "@phosphor-icons/react";
 import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import FooterSection from "@/components/FooterSection";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { useCartStore } from "@/stores/cartStore";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { getLocalizedTitle } from "@/i18n/localize";
 import allProducts, { CATEGORY_KEYS, type Category } from "@/data/products";
 import { toast } from "sonner";
 
@@ -31,9 +32,10 @@ const Shop = () => {
       price: product.price,
       quantity: 1,
     });
-    const title =
-      lang === "en" ? product.titleEn : lang === "ar" ? product.titleAr : product.title;
-    toast.success(t("product.added"), { description: title, position: "top-center" });
+    toast.success(t("product.added"), {
+      description: getLocalizedTitle(product, lang),
+      position: "top-center",
+    });
   };
 
   return (
@@ -80,18 +82,13 @@ const Shop = () => {
         {/* Products Grid */}
         {filtered.length === 0 ? (
           <div className="text-center py-20">
-            <ShoppingCart className="w-12 h-12 text-muted-foreground mx-auto mb-4" />
+            <ShoppingBagIcon className="w-12 h-12 text-muted-foreground mx-auto mb-4" />
             <p className="text-muted-foreground font-body text-lg">{t("shop.empty")}</p>
           </div>
         ) : (
           <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-8">
             {filtered.map((product, index) => {
-              const title =
-                lang === "en"
-                  ? product.titleEn
-                  : lang === "ar"
-                  ? product.titleAr
-                  : product.title;
+              const title = getLocalizedTitle(product, lang);
               return (
                 <motion.div
                   key={product.id}

@@ -1,10 +1,10 @@
 import { createContext, useContext, useState, useEffect, type ReactNode } from "react";
-import { translations, type Lang } from "./translations";
+import { translations, type Lang, type TranslationKey } from "./translations";
 
 interface LanguageContextType {
   lang: Lang;
   setLang: (lang: Lang) => void;
-  t: (key: string) => string;
+  t: (key: TranslationKey) => string;
 }
 
 const LanguageContext = createContext<LanguageContextType | null>(null);
@@ -21,8 +21,8 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
     localStorage.setItem("keyna-lang", newLang);
   };
 
-  const t = (key: string): string => {
-    return translations[lang][key] ?? translations["fr"][key] ?? key;
+  const t = (key: TranslationKey): string => {
+    return translations[lang][key] ?? translations.fr[key] ?? key;
   };
 
   useEffect(() => {

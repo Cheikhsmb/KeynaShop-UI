@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import keynaLogo from "@/assets/keyna-logo.png";
-import { Menu, X, ChevronDown, Globe, Moon, Sun } from "lucide-react";
+import { ListIcon, XIcon, CaretDownIcon, GlobeIcon, MoonIcon, SunIcon } from "@phosphor-icons/react";
 import { motion, AnimatePresence } from "framer-motion";
 import { CartDrawer } from "@/components/CartDrawer";
 import { useLanguage } from "@/i18n/LanguageContext";
@@ -50,7 +50,7 @@ const Navbar = () => {
     { labelKey: "nav.home", href: "/" },
     { labelKey: "nav.about", href: "/about" },
     { labelKey: "nav.contact", href: "/contact" },
-  ];
+  ] as const;
 
   const currentLang = LANGUAGES.find((l) => l.code === lang) ?? LANGUAGES[0];
 
@@ -71,7 +71,7 @@ const Navbar = () => {
           >
             <button className="font-body text-[13px] uppercase tracking-[0.15em] text-muted-foreground hover:text-foreground transition-colors duration-300 flex items-center gap-1">
               {t("nav.shop")}
-              <ChevronDown className={`w-3 h-3 transition-transform duration-200 ${shopOpen ? "rotate-180" : ""}`} />
+              <CaretDownIcon className={`w-3 h-3 transition-transform duration-200 ${shopOpen ? "rotate-180" : ""}`} />
             </button>
             <AnimatePresence>
               {shopOpen && (
@@ -118,9 +118,9 @@ const Navbar = () => {
             className="h-10 w-10"
           >
             {theme === "light" ? (
-              <Moon className="w-4 h-4" />
+              <MoonIcon className="w-4 h-4" />
             ) : (
-              <Sun className="w-4 h-4" />
+              <SunIcon className="w-4 h-4" />
             )}
           </Button>
 
@@ -135,9 +135,9 @@ const Navbar = () => {
               className="flex items-center gap-1.5 font-body text-[13px] text-muted-foreground hover:text-foreground transition-colors"
               aria-label={t("nav.lang")}
             >
-              <Globe className="w-4 h-4" />
+              <GlobeIcon className="w-4 h-4" />
               <span className="text-base leading-none">{currentLang.flag}</span>
-              <ChevronDown className={`w-3 h-3 transition-transform duration-200 ${langOpen ? "rotate-180" : ""}`} />
+              <CaretDownIcon className={`w-3 h-3 transition-transform duration-200 ${langOpen ? "rotate-180" : ""}`} />
             </button>
             <AnimatePresence>
               {langOpen && (
@@ -185,7 +185,7 @@ const Navbar = () => {
           className="md:hidden text-foreground"
           aria-label="Toggle menu"
         >
-          {isOpen ? <X size={24} /> : <Menu size={24} />}
+          {isOpen ? <XIcon size={24} /> : <ListIcon size={24} />}
         </button>
       </div>
 
@@ -245,7 +245,7 @@ const Navbar = () => {
                       : "border-border text-muted-foreground hover:border-foreground"
                   }`}
                 >
-                  <Sun className="w-3 h-3" />
+                  <SunIcon className="w-3 h-3" />
                   <span>{t("nav.theme.light")}</span>
                 </button>
                 <button
@@ -259,7 +259,7 @@ const Navbar = () => {
                       : "border-border text-muted-foreground hover:border-foreground"
                   }`}
                 >
-                  <Moon className="w-3 h-3" />
+                  <MoonIcon className="w-3 h-3" />
                   <span>{t("nav.theme.dark")}</span>
                 </button>
               </div>

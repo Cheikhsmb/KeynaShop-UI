@@ -19,7 +19,7 @@ const COLLECTIONS = [
   { titleKey: "collections.fabrics.title", descKey: "collections.fabrics.desc", image: collection7, cat: "fabrics" },
   { titleKey: "collections.home.title", descKey: "collections.home.desc", image: collection4, cat: "home" },
   { titleKey: "collections.scrunchies.title", descKey: "collections.scrunchies.desc", image: collection8, cat: "scrunchies" },
-];
+] as const;
 
 const CollectionsSection = () => {
   const { t } = useLanguage();

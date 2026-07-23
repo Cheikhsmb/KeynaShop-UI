@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Truck, Clock, CreditCard, ShieldCheck } from "lucide-react";
+import { TruckIcon, ClockIcon, CreditCardIcon, ShieldCheckIcon } from "@phosphor-icons/react";
 import Navbar from "@/components/Navbar";
 import FooterSection from "@/components/FooterSection";
 import WhatsAppButton from "@/components/WhatsAppButton";
@@ -10,26 +10,26 @@ const Delivery = () => {
 
   const deliveryInfo = [
     {
-      icon: Truck,
+      icon: TruckIcon,
       titleKey: "delivery.z.title",
       details: ["delivery.z.d1", "delivery.z.d2"],
     },
     {
-      icon: Clock,
+      icon: ClockIcon,
       titleKey: "delivery.t.title",
       details: ["delivery.t.d1", "delivery.t.d2"],
     },
     {
-      icon: CreditCard,
+      icon: CreditCardIcon,
       titleKey: "delivery.p.title",
       details: ["delivery.p.d1", "delivery.p.d2", "delivery.p.d3"],
     },
     {
-      icon: ShieldCheck,
+      icon: ShieldCheckIcon,
       titleKey: "delivery.g.title",
       details: ["delivery.g.d1", "delivery.g.d2", "delivery.g.d3"],
     },
-  ];
+  ] as const;
 
   return (
     <div className="min-h-screen bg-background">

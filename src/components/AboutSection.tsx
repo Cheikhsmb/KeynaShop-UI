@@ -1,15 +1,15 @@
 import { motion } from "framer-motion";
-import { MapPin, Truck, Gift } from "lucide-react";
+import { MapPinIcon, TruckIcon, GiftIcon } from "@phosphor-icons/react";
 import { useLanguage } from "@/i18n/LanguageContext";
 
 const AboutSection = () => {
   const { t } = useLanguage();
 
   const features = [
-    { icon: MapPin, titleKey: "about.feat1.title", descKey: "about.feat1.desc" },
-    { icon: Truck, titleKey: "about.feat2.title", descKey: "about.feat2.desc" },
-    { icon: Gift, titleKey: "about.feat3.title", descKey: "about.feat3.desc" },
-  ];
+    { icon: MapPinIcon, titleKey: "about.feat1.title", descKey: "about.feat1.desc" },
+    { icon: TruckIcon, titleKey: "about.feat2.title", descKey: "about.feat2.desc" },
+    { icon: GiftIcon, titleKey: "about.feat3.title", descKey: "about.feat3.desc" },
+  ] as const;
 
   return (
     <section id="about" className="py-20 md:py-32 section-padding bg-primary">

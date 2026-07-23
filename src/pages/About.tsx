@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { MapPin, Globe, Heart, Sparkles } from "lucide-react";
+import { MapPinIcon, GlobeIcon, HeartIcon, SparkleIcon } from "@phosphor-icons/react";
 import Navbar from "@/components/Navbar";
 import FooterSection from "@/components/FooterSection";
 import WhatsAppButton from "@/components/WhatsAppButton";
@@ -9,11 +9,11 @@ const About = () => {
   const { t } = useLanguage();
 
   const values = [
-    { icon: Globe, titleKey: "about.v1.title", descKey: "about.v1.desc" },
-    { icon: Heart, titleKey: "about.v2.title", descKey: "about.v2.desc" },
-    { icon: Sparkles, titleKey: "about.v3.title", descKey: "about.v3.desc" },
-    { icon: MapPin, titleKey: "about.v4.title", descKey: "about.v4.desc" },
-  ];
+    { icon: GlobeIcon, titleKey: "about.v1.title", descKey: "about.v1.desc" },
+    { icon: HeartIcon, titleKey: "about.v2.title", descKey: "about.v2.desc" },
+    { icon: SparkleIcon, titleKey: "about.v3.title", descKey: "about.v3.desc" },
+    { icon: MapPinIcon, titleKey: "about.v4.title", descKey: "about.v4.desc" },
+  ] as const;
 
   return (
     <div className="min-h-screen bg-background">

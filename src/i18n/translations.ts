@@ -1,7 +1,6 @@
 export type Lang = "fr" | "en" | "ar";
 
-export const translations: Record<Lang, Record<string, string>> = {
-  fr: {
+const fr = {
     // Navbar
     "nav.shop": "Boutique",
     "nav.home": "Accueil",
@@ -160,10 +159,39 @@ export const translations: Record<Lang, Record<string, string>> = {
     "product.back": "Retour à la boutique",
     "product.addCart": "Ajouter au panier",
     "product.orderWA": "Commander via WhatsApp",
+    "product.buyNow": "Acheter maintenant",
     "product.notFound": "Produit non trouvé",
     "product.backShop": "Retour à la boutique",
     "product.outOfStock": "Rupture de stock",
     "product.added": "Ajouté au panier",
+
+    // New Arrivals Section
+    "newarrivals.title": "Nouveautés",
+    "newarrivals.desc": "Les dernières pièces fraîchement arrivées dans notre collection.",
+    "newarrivals.tag": "Nouveau",
+    "newarrivals.item1.title": "Abaya Perle Dorée",
+    "newarrivals.item1.price": "45 000 FCFA",
+    "newarrivals.item2.title": "Parfum Oud Royal",
+    "newarrivals.item2.price": "28 000 FCFA",
+    "newarrivals.item3.title": "Sac Cuir Milano",
+    "newarrivals.item3.price": "35 000 FCFA",
+
+    // Checkout
+    "checkout.title": "Confirmer la commande",
+    "checkout.name": "Nom complet",
+    "checkout.namePlaceholder": "Votre nom",
+    "checkout.phone": "Numéro de téléphone",
+    "checkout.phonePlaceholder": "+221 77 XXX XX XX",
+    "checkout.address": "Adresse de livraison",
+    "checkout.addressPlaceholder": "Adresse à Dakar ou région",
+    "checkout.notes": "Notes (optionnel)",
+    "checkout.notesPlaceholder": "Instructions particulières",
+    "checkout.submit": "Passer la commande",
+    "checkout.submitting": "Commande en cours…",
+    "checkout.cancel": "Annuler",
+    "checkout.success": "Commande confirmée !",
+    "checkout.successDesc": "Nous vous contacterons sous peu pour confirmer votre commande.",
+    "checkout.continue": "Continuer mes achats",
 
     // Cart
     "cart.title": "Panier",
@@ -174,9 +202,12 @@ export const translations: Record<Lang, Record<string, string>> = {
     "cart.waMsg": "Bonjour KEYNA 👋 Je souhaite commander :\n",
     "cart.waTotal": "Total",
     "cart.waThanks": "\nMerci !",
-  },
+};
 
-  en: {
+/** Every valid translation key — a typo'd key is now a compile-time error. */
+export type TranslationKey = keyof typeof fr;
+
+const en: Record<TranslationKey, string> = {
     // Navbar
     "nav.shop": "Shop",
     "nav.home": "Home",
@@ -335,10 +366,39 @@ export const translations: Record<Lang, Record<string, string>> = {
     "product.back": "Back to shop",
     "product.addCart": "Add to cart",
     "product.orderWA": "Order via WhatsApp",
+    "product.buyNow": "Buy Now",
     "product.notFound": "Product not found",
     "product.backShop": "Back to shop",
     "product.outOfStock": "Out of stock",
     "product.added": "Added to cart",
+
+    // New Arrivals Section
+    "newarrivals.title": "New Arrivals",
+    "newarrivals.desc": "The latest pieces freshly arrived in our collection.",
+    "newarrivals.tag": "New",
+    "newarrivals.item1.title": "Golden Pearl Abaya",
+    "newarrivals.item1.price": "45 000 FCFA",
+    "newarrivals.item2.title": "Royal Oud Perfume",
+    "newarrivals.item2.price": "28 000 FCFA",
+    "newarrivals.item3.title": "Milano Leather Bag",
+    "newarrivals.item3.price": "35 000 FCFA",
+
+    // Checkout
+    "checkout.title": "Confirm Order",
+    "checkout.name": "Full Name",
+    "checkout.namePlaceholder": "Your name",
+    "checkout.phone": "Phone Number",
+    "checkout.phonePlaceholder": "+221 77 XXX XX XX",
+    "checkout.address": "Delivery Address",
+    "checkout.addressPlaceholder": "Address in Dakar or region",
+    "checkout.notes": "Notes (optional)",
+    "checkout.notesPlaceholder": "Any special instructions",
+    "checkout.submit": "Place Order",
+    "checkout.submitting": "Placing order…",
+    "checkout.cancel": "Cancel",
+    "checkout.success": "Order Placed!",
+    "checkout.successDesc": "We'll contact you shortly to confirm your order.",
+    "checkout.continue": "Continue Shopping",
 
     // Cart
     "cart.title": "Cart",
@@ -349,9 +409,9 @@ export const translations: Record<Lang, Record<string, string>> = {
     "cart.waMsg": "Hello KEYNA 👋 I'd like to order:\n",
     "cart.waTotal": "Total",
     "cart.waThanks": "\nThank you!",
-  },
+};
 
-  ar: {
+const ar: Record<TranslationKey, string> = {
     // Navbar
     "nav.shop": "المتجر",
     "nav.home": "الرئيسية",
@@ -510,10 +570,39 @@ export const translations: Record<Lang, Record<string, string>> = {
     "product.back": "العودة إلى المتجر",
     "product.addCart": "أضيفي إلى السلة",
     "product.orderWA": "اطلبي عبر واتساب",
+    "product.buyNow": "اشتري الآن",
     "product.notFound": "المنتج غير موجود",
     "product.backShop": "العودة إلى المتجر",
     "product.outOfStock": "نفد المخزون",
     "product.added": "أُضيف إلى السلة",
+
+    // New Arrivals Section
+    "newarrivals.title": "وصل حديثاً",
+    "newarrivals.desc": "أحدث القطع التي وصلت حديثاً إلى مجموعتنا.",
+    "newarrivals.tag": "جديد",
+    "newarrivals.item1.title": "عباءة اللؤلؤ الذهبي",
+    "newarrivals.item1.price": "٤٥٬٠٠٠ فرنك",
+    "newarrivals.item2.title": "عطر العود الملكي",
+    "newarrivals.item2.price": "٢٨٬٠٠٠ فرنك",
+    "newarrivals.item3.title": "حقيبة ميلانو الجلدية",
+    "newarrivals.item3.price": "٣٥٬٠٠٠ فرنك",
+
+    // Checkout
+    "checkout.title": "تأكيد الطلب",
+    "checkout.name": "الاسم الكامل",
+    "checkout.namePlaceholder": "اسمك",
+    "checkout.phone": "رقم الهاتف",
+    "checkout.phonePlaceholder": "+221 77 XXX XX XX",
+    "checkout.address": "عنوان التوصيل",
+    "checkout.addressPlaceholder": "العنوان في داكار أو المنطقة",
+    "checkout.notes": "ملاحظات (اختياري)",
+    "checkout.notesPlaceholder": "أي تعليمات خاصة",
+    "checkout.submit": "تأكيد الطلب",
+    "checkout.submitting": "جاري تأكيد الطلب…",
+    "checkout.cancel": "إلغاء",
+    "checkout.success": "تم تأكيد الطلب!",
+    "checkout.successDesc": "سنتصل بك قريباً لتأكيد طلبك.",
+    "checkout.continue": "مواصلة التسوق",
 
     // Cart
     "cart.title": "سلة المشتريات",
@@ -524,5 +613,6 @@ export const translations: Record<Lang, Record<string, string>> = {
     "cart.waMsg": "مرحباً KEYNA 👋 أرغب في طلب:\n",
     "cart.waTotal": "المجموع",
     "cart.waThanks": "\nشكراً !",
-  },
 };
+
+export const translations: Record<Lang, Record<TranslationKey, string>> = { fr, en, ar };
